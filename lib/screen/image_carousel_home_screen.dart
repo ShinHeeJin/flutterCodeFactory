@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ImageCarouselHomeScreen extends StatefulWidget {
   const ImageCarouselHomeScreen({super.key});
@@ -40,6 +41,8 @@ class _ImageCarouselHomeScreenState extends State<ImageCarouselHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+
     return Scaffold(
       body: PageView(
         controller: pageController,
