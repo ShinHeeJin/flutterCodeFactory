@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 
-class UnIHomeScreen extends StatelessWidget {
+class UnIHomeScreen extends StatefulWidget {
   const UnIHomeScreen({super.key});
+
+  @override
+  State<UnIHomeScreen> createState() => _UnIHomeScreenState();
+}
+
+class _UnIHomeScreenState extends State<UnIHomeScreen> {
+  DateTime firstDay = DateTime.now();
+
+  void onHeartPressed() {
+    print("클릭");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +25,9 @@ class UnIHomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _DDay(),
+            _DDay(
+              onHeartPressed: onHeartPressed,
+            ),
             _CoupleImage(),
           ],
         ),
@@ -24,6 +37,11 @@ class UnIHomeScreen extends StatelessWidget {
 }
 
 class _DDay extends StatelessWidget {
+  final GestureTapCallback onHeartPressed;
+  const _DDay({
+    required this.onHeartPressed,
+  });
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -38,7 +56,7 @@ class _DDay extends StatelessWidget {
           Text("2019.05.03", style: textTheme.bodyMedium),
           const SizedBox(height: 16.0),
           IconButton(
-            onPressed: () {},
+            onPressed: onHeartPressed,
             icon: const Icon(
               Icons.favorite,
             ),
@@ -58,7 +76,7 @@ class _CoupleImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       "asset/img/middle_image.png",
-      height: MediaQuery.of(context).size.height / 2,
+      height: MediaQuery.of(context).size.height / 2.2,
     );
   }
 }
