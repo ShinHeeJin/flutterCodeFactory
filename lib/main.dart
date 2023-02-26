@@ -11,6 +11,32 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: UnIHomeScreen());
+    return MaterialApp(
+      home: const UnIHomeScreen(),
+      theme: ThemeData(
+        fontFamily: "sunflower",
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+            color: Colors.white,
+            fontSize: 80.0,
+            fontWeight: FontWeight.w700,
+            fontFamily: "parisienne",
+          ),
+          displayMedium: TextStyle(
+            color: Colors.white,
+            fontSize: 50.0,
+            fontWeight: FontWeight.w700,
+          ),
+          bodyLarge: TextStyle(
+            color: Colors.white,
+            fontSize: 30.0,
+          ),
+          bodyMedium: TextStyle(
+            color: Colors.white,
+            fontSize: 20.0,
+          ),
+        ),
+      ),
+    );
   }
 }

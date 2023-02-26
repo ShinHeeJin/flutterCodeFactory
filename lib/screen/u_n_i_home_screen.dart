@@ -26,7 +26,30 @@ class UnIHomeScreen extends StatelessWidget {
 class _DDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Text("DDay Widget");
+    final textTheme = Theme.of(context).textTheme;
+
+    return Expanded(
+      child: Column(
+        children: [
+          const SizedBox(height: 16.0),
+          Text("U & I", style: textTheme.displayLarge),
+          const SizedBox(height: 16.0),
+          Text("우리 처음 만난날", style: textTheme.bodyLarge),
+          Text("2019.05.03", style: textTheme.bodyMedium),
+          const SizedBox(height: 16.0),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.favorite,
+            ),
+            iconSize: 60.0,
+            color: Colors.red,
+          ),
+          const SizedBox(height: 16.0),
+          Text("D+365", style: textTheme.displayMedium)
+        ],
+      ),
+    );
   }
 }
 
