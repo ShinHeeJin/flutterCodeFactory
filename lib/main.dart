@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:second/screen/u_n_i_home_screen.dart';
+import 'package:second/const/colors.dart';
+import 'package:second/screen/random_dice_home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,31 +13,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const UnIHomeScreen(),
       theme: ThemeData(
-        fontFamily: "sunflower",
-        textTheme: const TextTheme(
-          displayLarge: TextStyle(
-            color: Colors.white,
-            fontSize: 80.0,
-            fontWeight: FontWeight.w700,
-            fontFamily: "parisienne",
-          ),
-          displayMedium: TextStyle(
-            color: Colors.white,
-            fontSize: 50.0,
-            fontWeight: FontWeight.w700,
-          ),
-          bodyLarge: TextStyle(
-            color: Colors.white,
-            fontSize: 30.0,
-          ),
-          bodyMedium: TextStyle(
-            color: Colors.white,
-            fontSize: 20.0,
-          ),
+        scaffoldBackgroundColor: backgroundColor,
+        sliderTheme: SliderThemeData(
+          thumbColor: primaryColor,
+          activeTrackColor: primaryColor,
+          inactiveTrackColor: primaryColor.withOpacity(0.3),
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedItemColor: primaryColor,
+          unselectedItemColor: secondaryColor,
+          backgroundColor: backgroundColor,
         ),
       ),
+      home: const RandomDiceHomeScreen(),
     );
   }
 }
