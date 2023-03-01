@@ -34,7 +34,20 @@ List<Widget> renderChildren() {
 }
 
 BottomNavigationBar renderBottomNavigation() {
-  return BottomNavigationBar(items: const []);
+  return BottomNavigationBar(
+    items: const [
+      BottomNavigationBarItem(
+        icon: Icon(
+          Icons.edgesensor_high_outlined,
+        ),
+        label: '주사위',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(
+          Icons.settings,
+        ),
+        label: '설정',
+      ),
+    ],
+  );
 }
-
-# 256쪽 작업중
