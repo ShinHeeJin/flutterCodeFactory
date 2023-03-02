@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:second/screen/random_dice_root_screen.dart';
 
 class RandomDiceHomeScreen extends StatefulWidget {
   const RandomDiceHomeScreen({super.key});
@@ -42,16 +43,7 @@ class _RandomDiceHomeScreenState extends State<RandomDiceHomeScreen>
 
   List<Widget> renderChildren() {
     return [
-      Container(
-        child: const Center(
-          child: Text(
-            'Tab 1',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ),
+      const RandomDiceRootScreen(number: 1),
       Container(
         child: const Center(
           child: Text(
