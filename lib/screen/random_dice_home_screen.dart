@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:second/screen/random_dice_root_screen.dart';
 import 'package:second/screen/random_dice_setting_screen.dart';
+import 'package:shake/shake.dart';
 
 class RandomDiceHomeScreen extends StatefulWidget {
   const RandomDiceHomeScreen({super.key});
@@ -13,13 +16,28 @@ class _RandomDiceHomeScreenState extends State<RandomDiceHomeScreen>
     with TickerProviderStateMixin {
   TabController? tabController;
   double threshold = 2.7;
+  int number = 1;
+  ShakeDetector? shakeDetector;
 
   @override
   void initState() {
     super.initState();
     tabController = TabController(length: 2, vsync: this);
-
     tabController!.addListener(tabListner);
+
+    shakeDetector = ShakeDetector.autoStart(
+      shakeSlopTimeMS: 100,
+      shakeThresholdGravity: threshold,
+      onPhoneShake: onPhoneShake,
+    );
+  }
+
+  void onPhoneShake() {
+    final rand = Random();
+
+    setState(() {
+      number = rand.nextInt(5) + 1;
+    });
   }
 
   tabListner() {
@@ -29,6 +47,7 @@ class _RandomDiceHomeScreenState extends State<RandomDiceHomeScreen>
   @override
   void dispose() {
     tabController!.removeListener(tabListner);
+    shakeDetector!.stopListening();
     super.dispose();
   }
 
@@ -45,9 +64,11 @@ class _RandomDiceHomeScreenState extends State<RandomDiceHomeScreen>
 
   List<Widget> renderChildren() {
     return [
-      const RandomDiceRootScreen(number: 1),
+      RandomDiceRootScreen(number: number),
       RandomDiceSettingScreen(
-          threshold: threshold, onTresholdChange: onTresholdChange)
+        threshold: threshold,
+        onTresholdChange: onTresholdChange,
+      )
     ];
   }
 
