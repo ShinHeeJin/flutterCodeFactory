@@ -1,5 +1,7 @@
 PODS:
   - Flutter (1.0.0)
+  - sensors (0.0.1):
+    - Flutter
   - sensors_plus (0.0.1):
     - Flutter
   - webview_flutter_wkwebview (0.0.1):
@@ -7,12 +9,15 @@ PODS:
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
+  - sensors (from `.symlinks/plugins/sensors/ios`)
   - sensors_plus (from `.symlinks/plugins/sensors_plus/ios`)
   - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
+  sensors:
+    :path: ".symlinks/plugins/sensors/ios"
   sensors_plus:
     :path: ".symlinks/plugins/sensors_plus/ios"
   webview_flutter_wkwebview:
@@ -20,6 +25,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  sensors: 84eb7a30e47a649e4172b71d6e81be614c280336
   sensors_plus: 5717760720f7e6acd96fdbd75b7428f5ad755ec2
   webview_flutter_wkwebview: d08f59cde5e8402c345c0bdda35ac0031352dcae
 
