@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:second/screen/random_dice_root_screen.dart';
+import 'package:second/screen/random_dice_setting_screen.dart';
 
 class RandomDiceHomeScreen extends StatefulWidget {
   const RandomDiceHomeScreen({super.key});
@@ -11,6 +12,7 @@ class RandomDiceHomeScreen extends StatefulWidget {
 class _RandomDiceHomeScreenState extends State<RandomDiceHomeScreen>
     with TickerProviderStateMixin {
   TabController? tabController;
+  double threshold = 2.7;
 
   @override
   void initState() {
@@ -44,17 +46,15 @@ class _RandomDiceHomeScreenState extends State<RandomDiceHomeScreen>
   List<Widget> renderChildren() {
     return [
       const RandomDiceRootScreen(number: 1),
-      Container(
-        child: const Center(
-          child: Text(
-            'Tab 2',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ),
+      RandomDiceSettingScreen(
+          threshold: threshold, onTresholdChange: onTresholdChange)
     ];
+  }
+
+  void onTresholdChange(double val) {
+    setState(() {
+      threshold = val;
+    });
   }
 
   BottomNavigationBar renderBottomNavigation() {
